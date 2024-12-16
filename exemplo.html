@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <style>
+        .concluida {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>Minha Lista de Tarefas</h1>
+    <ul id="lista-tarefas">
+        <li>Comprar leite <button class="concluir">Concluir</button></li>
+        <li>Estudar programação <button class="concluir">Concluir</button></li>
+        <li>Fazer exercícios <button class="concluir">Concluir</button></li>
+    </ul>
+
+    <script>
+        document.querySelectorAll('.concluir').forEach(botao => {
+            botao.addEventListener('click', function () {
+                concluirTarefa(this);
+            });
+        });
+
+        function concluirTarefa(botao) {
+            let item = botao.parentNode;
+            item.classList.add('concluida');
+            botao.disabled = true;
+        }
+    </script>
+    
+</body>
+</html>
